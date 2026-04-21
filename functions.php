@@ -22,3 +22,9 @@ add_action( 'wp_enqueue_scripts', function () {
 	wp_enqueue_style( 'rey-wp-style-child', get_stylesheet_uri(), [], wp_get_theme()->get('Version') );
 
 }, PHP_INT_MAX /* load late */ );
+
+// Register custom Elementor widget
+add_action('elementor/widgets/register', function ($widgets_manager) {
+	require_once get_stylesheet_directory() . '/widgets/test-widget.php';
+	$widgets_manager->register(new \WolfMotion_Test_Widget());
+});
