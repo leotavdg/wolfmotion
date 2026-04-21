@@ -113,12 +113,16 @@ class WolfMotion_Hero_Widget extends \Elementor\Widget_Base {
 			'label' => 'Micro Trust Items',
 			'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 		]);
+		$repeater = new \Elementor\Repeater();
+		$repeater->add_control('text', [
+			'label' => 'Text',
+			'type' => \Elementor\Controls_Manager::TEXT,
+			'default' => 'Feature',
+		]);
 		$this->add_control('micro_items', [
 			'label' => 'Trust Items',
 			'type' => \Elementor\Controls_Manager::REPEATER,
-			'fields' => [
-				['name' => 'text', 'label' => 'Text', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'Feature'],
-			],
+			'fields' => $repeater->get_controls(),
 			'default' => [
 				['text' => 'SlimeVR compatible'],
 				['text' => 'Ships worldwide'],

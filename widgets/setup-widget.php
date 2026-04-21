@@ -38,14 +38,26 @@ class WolfMotion_Setup_Widget extends \Elementor\Widget_Base {
 			'label' => 'Steps',
 			'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 		]);
+		$repeater = new \Elementor\Repeater();
+		$repeater->add_control('icon', [
+			'label' => 'Icon/Emoji',
+			'type' => \Elementor\Controls_Manager::TEXT,
+			'default' => '🎮',
+		]);
+		$repeater->add_control('title', [
+			'label' => 'Title',
+			'type' => \Elementor\Controls_Manager::TEXT,
+			'default' => 'Step',
+		]);
+		$repeater->add_control('desc', [
+			'label' => 'Description',
+			'type' => \Elementor\Controls_Manager::TEXTAREA,
+			'default' => 'Step description.',
+		]);
 		$this->add_control('steps', [
 			'label' => 'Steps',
 			'type' => \Elementor\Controls_Manager::REPEATER,
-			'fields' => [
-				['name' => 'icon', 'label' => 'Icon/Emoji', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => '🎮'],
-				['name' => 'title', 'label' => 'Title', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'Step'],
-				['name' => 'desc', 'label' => 'Description', 'type' => \Elementor\Controls_Manager::TEXTAREA, 'default' => 'Step description.'],
-			],
+			'fields' => $repeater->get_controls(),
 			'default' => [
 				['icon' => '👕', 'title' => 'Put on trackers', 'desc' => 'Wrap the adjustable straps on chest, hips, thighs, and ankles. Takes under a minute — no tools needed.'],
 				['icon' => '🖥️', 'title' => 'Launch SlimeVR', 'desc' => 'Open SlimeVR and power on the dock. Trackers pair automatically over 2.4 GHz and appear in your dashboard.'],

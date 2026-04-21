@@ -123,6 +123,7 @@
   position: relative; z-index: 1; padding: 140px 0;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   color: var(--wm-fg);
+  background-color: var(--wm-bg-1);
   -webkit-font-smoothing: antialiased;
   line-height: 1.5;
 }
@@ -132,6 +133,10 @@
 .wm-sect-head p { margin: 0; font-size: 18px; color: var(--wm-fg-2); line-height: 1.55; text-wrap: balance; }
 
 /* --- Animated background --- */
+/* In Elementor editor, show as a block element so it's visible */
+.elementor-editor-active .wm-bg-shell {
+  position: relative; min-height: 200px;
+}
 .wm-bg-shell {
   position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
   background:
@@ -172,6 +177,7 @@
   overflow: hidden;
   font-family: 'Inter', sans-serif;
   color: var(--wm-fg);
+  background-color: var(--wm-bg-1);
 }
 .wm-hero__logo-wrap {
   width: 88px; height: 88px; margin: 32px 0 28px;
@@ -258,6 +264,7 @@
   border-top: 1px solid var(--wm-line); border-bottom: 1px solid var(--wm-line);
   overflow: hidden; position: relative;
   font-family: 'Inter', sans-serif;
+  background-color: var(--wm-bg-1);
 }
 .wm-ticker__inner {
   display: flex; gap: 80px; align-items: center; white-space: nowrap;
@@ -598,6 +605,7 @@
   padding: 160px 0 180px;
   text-align: center; overflow: hidden;
   font-family: 'Inter', sans-serif; color: var(--wm-fg);
+  background-color: var(--wm-bg-1);
 }
 .wm-final-cta::before {
   content: ''; position: absolute; left: 50%; top: 10%; transform: translateX(-50%);

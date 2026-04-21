@@ -38,14 +38,26 @@ class WolfMotion_FullBody_Widget extends \Elementor\Widget_Base {
 			'label' => 'Stats Grid',
 			'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 		]);
+		$repeater_stats = new \Elementor\Repeater();
+		$repeater_stats->add_control('value', [
+			'label' => 'Value',
+			'type' => \Elementor\Controls_Manager::TEXT,
+			'default' => '0',
+		]);
+		$repeater_stats->add_control('unit', [
+			'label' => 'Unit',
+			'type' => \Elementor\Controls_Manager::TEXT,
+			'default' => '',
+		]);
+		$repeater_stats->add_control('label', [
+			'label' => 'Label',
+			'type' => \Elementor\Controls_Manager::TEXT,
+			'default' => 'Stat',
+		]);
 		$this->add_control('stats', [
 			'label' => 'Stats',
 			'type' => \Elementor\Controls_Manager::REPEATER,
-			'fields' => [
-				['name' => 'value', 'label' => 'Value', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => '0'],
-				['name' => 'unit', 'label' => 'Unit', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => ''],
-				['name' => 'label', 'label' => 'Label', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'Stat'],
-			],
+			'fields' => $repeater_stats->get_controls(),
 			'default' => [
 				['value' => '0.4°', 'unit' => '', 'label' => 'Drift / hr'],
 				['value' => '200', 'unit' => 'Hz', 'label' => 'Sample rate'],
@@ -63,14 +75,22 @@ class WolfMotion_FullBody_Widget extends \Elementor\Widget_Base {
 			'label' => 'Feature List',
 			'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 		]);
+		$repeater_features = new \Elementor\Repeater();
+		$repeater_features->add_control('text', [
+			'label' => 'Text',
+			'type' => \Elementor\Controls_Manager::TEXT,
+			'default' => 'Feature',
+		]);
+		$repeater_features->add_control('icon', [
+			'label' => 'Icon',
+			'type' => \Elementor\Controls_Manager::SELECT,
+			'default' => 'wifi',
+			'options' => ['wifi' => 'Wifi', 'battery' => 'Battery', 'weight' => 'Weight', 'zap' => 'Zap'],
+		]);
 		$this->add_control('features', [
 			'label' => 'Features',
 			'type' => \Elementor\Controls_Manager::REPEATER,
-			'fields' => [
-				['name' => 'text', 'label' => 'Text', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'Feature'],
-				['name' => 'icon', 'label' => 'Icon', 'type' => \Elementor\Controls_Manager::SELECT, 'default' => 'wifi',
-					'options' => ['wifi' => 'Wifi', 'battery' => 'Battery', 'weight' => 'Weight', 'zap' => 'Zap']],
-			],
+			'fields' => $repeater_features->get_controls(),
 			'default' => [
 				['text' => 'Wireless 2.4 GHz', 'icon' => 'wifi'],
 				['text' => '10–12h battery life', 'icon' => 'battery'],

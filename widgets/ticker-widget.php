@@ -14,12 +14,16 @@ class WolfMotion_Ticker_Widget extends \Elementor\Widget_Base {
 			'label' => 'Ticker Items',
 			'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 		]);
+		$repeater = new \Elementor\Repeater();
+		$repeater->add_control('name', [
+			'label' => 'Name',
+			'type' => \Elementor\Controls_Manager::TEXT,
+			'default' => 'Platform',
+		]);
 		$this->add_control('items', [
 			'label' => 'Items',
 			'type' => \Elementor\Controls_Manager::REPEATER,
-			'fields' => [
-				['name' => 'name', 'label' => 'Name', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'Platform'],
-			],
+			'fields' => $repeater->get_controls(),
 			'default' => [
 				['name' => 'VRChat'],
 				['name' => 'SteamVR'],

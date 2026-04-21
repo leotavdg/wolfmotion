@@ -38,13 +38,21 @@ class WolfMotion_FAQ_Widget extends \Elementor\Widget_Base {
 			'label' => 'FAQ Items',
 			'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 		]);
+		$repeater = new \Elementor\Repeater();
+		$repeater->add_control('question', [
+			'label' => 'Question',
+			'type' => \Elementor\Controls_Manager::TEXT,
+			'default' => 'Question?',
+		]);
+		$repeater->add_control('answer', [
+			'label' => 'Answer',
+			'type' => \Elementor\Controls_Manager::TEXTAREA,
+			'default' => 'Answer.',
+		]);
 		$this->add_control('items', [
 			'label' => 'Questions',
 			'type' => \Elementor\Controls_Manager::REPEATER,
-			'fields' => [
-				['name' => 'question', 'label' => 'Question', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'Question?'],
-				['name' => 'answer', 'label' => 'Answer', 'type' => \Elementor\Controls_Manager::TEXTAREA, 'default' => 'Answer.'],
-			],
+			'fields' => $repeater->get_controls(),
 			'default' => [
 				['question' => 'How many trackers do I need?', 'answer' => 'For full-body tracking, we recommend 8–10 trackers (head, chest, hip, 2× upper arms, 2× thighs, 2× ankles). You can start with 6 for basic lower-body tracking and add more later — all Wolfmotion units are cross-compatible.'],
 				['question' => 'Is setup difficult?', 'answer' => 'No. Pair with SlimeVR, T-pose for three seconds, and you\'re tracking. Most users are in-game within five minutes of unboxing.'],

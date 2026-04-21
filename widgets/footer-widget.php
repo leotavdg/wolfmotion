@@ -60,13 +60,21 @@ class WolfMotion_Footer_Widget extends \Elementor\Widget_Base {
 		$this->add_control('col1_title', [
 			'label' => 'Title', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'Product',
 		]);
+		$repeater_col1 = new \Elementor\Repeater();
+		$repeater_col1->add_control('text', [
+			'label' => 'Text',
+			'type' => \Elementor\Controls_Manager::TEXT,
+			'default' => 'Link',
+		]);
+		$repeater_col1->add_control('url', [
+			'label' => 'URL',
+			'type' => \Elementor\Controls_Manager::TEXT,
+			'default' => '#',
+		]);
 		$this->add_control('col1_links', [
 			'label' => 'Links',
 			'type' => \Elementor\Controls_Manager::REPEATER,
-			'fields' => [
-				['name' => 'text', 'label' => 'Text', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'Link'],
-				['name' => 'url', 'label' => 'URL', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => '#'],
-			],
+			'fields' => $repeater_col1->get_controls(),
 			'default' => [
 				['text' => 'Features', 'url' => '#features'],
 				['text' => 'Specifications', 'url' => '#product'],
@@ -85,13 +93,21 @@ class WolfMotion_Footer_Widget extends \Elementor\Widget_Base {
 		$this->add_control('col2_title', [
 			'label' => 'Title', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'Support',
 		]);
+		$repeater_col2 = new \Elementor\Repeater();
+		$repeater_col2->add_control('text', [
+			'label' => 'Text',
+			'type' => \Elementor\Controls_Manager::TEXT,
+			'default' => 'Link',
+		]);
+		$repeater_col2->add_control('url', [
+			'label' => 'URL',
+			'type' => \Elementor\Controls_Manager::TEXT,
+			'default' => '#',
+		]);
 		$this->add_control('col2_links', [
 			'label' => 'Links',
 			'type' => \Elementor\Controls_Manager::REPEATER,
-			'fields' => [
-				['name' => 'text', 'label' => 'Text', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'Link'],
-				['name' => 'url', 'label' => 'URL', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => '#'],
-			],
+			'fields' => $repeater_col2->get_controls(),
 			'default' => [
 				['text' => 'Documentation', 'url' => '#'],
 				['text' => 'FAQ', 'url' => '#faq'],
@@ -110,13 +126,21 @@ class WolfMotion_Footer_Widget extends \Elementor\Widget_Base {
 		$this->add_control('col3_title', [
 			'label' => 'Title', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'Community',
 		]);
+		$repeater_col3 = new \Elementor\Repeater();
+		$repeater_col3->add_control('text', [
+			'label' => 'Text',
+			'type' => \Elementor\Controls_Manager::TEXT,
+			'default' => 'Link',
+		]);
+		$repeater_col3->add_control('url', [
+			'label' => 'URL',
+			'type' => \Elementor\Controls_Manager::TEXT,
+			'default' => '#',
+		]);
 		$this->add_control('col3_links', [
 			'label' => 'Links',
 			'type' => \Elementor\Controls_Manager::REPEATER,
-			'fields' => [
-				['name' => 'text', 'label' => 'Text', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'Link'],
-				['name' => 'url', 'label' => 'URL', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => '#'],
-			],
+			'fields' => $repeater_col3->get_controls(),
 			'default' => [
 				['text' => 'Discord', 'url' => '#'],
 				['text' => 'Blog', 'url' => '#'],
@@ -137,13 +161,21 @@ class WolfMotion_Footer_Widget extends \Elementor\Widget_Base {
 			'type' => \Elementor\Controls_Manager::TEXT,
 			'default' => '© 2026 Wolfmotion — hand-built for VR.',
 		]);
+		$repeater_bottom = new \Elementor\Repeater();
+		$repeater_bottom->add_control('text', [
+			'label' => 'Text',
+			'type' => \Elementor\Controls_Manager::TEXT,
+			'default' => 'Link',
+		]);
+		$repeater_bottom->add_control('url', [
+			'label' => 'URL',
+			'type' => \Elementor\Controls_Manager::TEXT,
+			'default' => '#',
+		]);
 		$this->add_control('bottom_links', [
 			'label' => 'Bottom Links',
 			'type' => \Elementor\Controls_Manager::REPEATER,
-			'fields' => [
-				['name' => 'text', 'label' => 'Text', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'Link'],
-				['name' => 'url', 'label' => 'URL', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => '#'],
-			],
+			'fields' => $repeater_bottom->get_controls(),
 			'default' => [
 				['text' => 'Privacy', 'url' => '#'],
 				['text' => 'Terms', 'url' => '#'],

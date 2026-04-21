@@ -43,13 +43,21 @@ class WolfMotion_Compatibility_Widget extends \Elementor\Widget_Base {
 			'type' => \Elementor\Controls_Manager::TEXT,
 			'default' => 'Supported headsets',
 		]);
+		$repeater = new \Elementor\Repeater();
+		$repeater->add_control('name', [
+			'label' => 'Name',
+			'type' => \Elementor\Controls_Manager::TEXT,
+			'default' => 'Headset',
+		]);
+		$repeater->add_control('meta', [
+			'label' => 'Type',
+			'type' => \Elementor\Controls_Manager::TEXT,
+			'default' => 'PCVR',
+		]);
 		$this->add_control('headsets', [
 			'label' => 'Headsets',
 			'type' => \Elementor\Controls_Manager::REPEATER,
-			'fields' => [
-				['name' => 'name', 'label' => 'Name', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'Headset'],
-				['name' => 'meta', 'label' => 'Type', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'PCVR'],
-			],
+			'fields' => $repeater->get_controls(),
 			'default' => [
 				['name' => 'Meta Quest 3', 'meta' => 'Standalone'],
 				['name' => 'Meta Quest Pro', 'meta' => 'Standalone'],

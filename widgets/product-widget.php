@@ -75,17 +75,41 @@ class WolfMotion_Product_Widget extends \Elementor\Widget_Base {
 			'label' => 'Pack Options',
 			'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 		]);
+		$repeater_packs = new \Elementor\Repeater();
+		$repeater_packs->add_control('name', [
+			'label' => 'Name',
+			'type' => \Elementor\Controls_Manager::TEXT,
+			'default' => 'Pack',
+		]);
+		$repeater_packs->add_control('desc', [
+			'label' => 'Description',
+			'type' => \Elementor\Controls_Manager::TEXT,
+			'default' => 'Pack description.',
+		]);
+		$repeater_packs->add_control('price', [
+			'label' => 'Price',
+			'type' => \Elementor\Controls_Manager::NUMBER,
+			'default' => 199,
+		]);
+		$repeater_packs->add_control('old_price', [
+			'label' => 'Old Price',
+			'type' => \Elementor\Controls_Manager::NUMBER,
+			'default' => 249,
+		]);
+		$repeater_packs->add_control('popular', [
+			'label' => 'Most Popular',
+			'type' => \Elementor\Controls_Manager::SWITCHER,
+			'default' => '',
+		]);
+		$repeater_packs->add_control('selected', [
+			'label' => 'Default Selected',
+			'type' => \Elementor\Controls_Manager::SWITCHER,
+			'default' => '',
+		]);
 		$this->add_control('packs', [
 			'label' => 'Packs',
 			'type' => \Elementor\Controls_Manager::REPEATER,
-			'fields' => [
-				['name' => 'name', 'label' => 'Name', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'Pack'],
-				['name' => 'desc', 'label' => 'Description', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'Pack description.'],
-				['name' => 'price', 'label' => 'Price', 'type' => \Elementor\Controls_Manager::NUMBER, 'default' => 199],
-				['name' => 'old_price', 'label' => 'Old Price', 'type' => \Elementor\Controls_Manager::NUMBER, 'default' => 249],
-				['name' => 'popular', 'label' => 'Most Popular', 'type' => \Elementor\Controls_Manager::SWITCHER, 'default' => ''],
-				['name' => 'selected', 'label' => 'Default Selected', 'type' => \Elementor\Controls_Manager::SWITCHER, 'default' => ''],
-			],
+			'fields' => $repeater_packs->get_controls(),
 			'default' => [
 				['name' => 'Starter · 6 trackers', 'desc' => 'Basic body points — legs, hips, chest.', 'price' => 199, 'old_price' => 249, 'popular' => '', 'selected' => ''],
 				['name' => 'Advanced · 8 trackers', 'desc' => 'Enhanced tracking with elbows for precision.', 'price' => 299, 'old_price' => 349, 'popular' => '', 'selected' => ''],
@@ -140,14 +164,22 @@ class WolfMotion_Product_Widget extends \Elementor\Widget_Base {
 			'label' => 'Trust Items',
 			'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 		]);
+		$repeater_trust = new \Elementor\Repeater();
+		$repeater_trust->add_control('label', [
+			'label' => 'Label',
+			'type' => \Elementor\Controls_Manager::TEXT,
+			'default' => 'Trust',
+		]);
+		$repeater_trust->add_control('icon', [
+			'label' => 'Icon',
+			'type' => \Elementor\Controls_Manager::SELECT,
+			'default' => 'shield',
+			'options' => ['shield' => 'Shield', 'truck' => 'Truck', 'package' => 'Package'],
+		]);
 		$this->add_control('trust_items', [
 			'label' => 'Trust Items',
 			'type' => \Elementor\Controls_Manager::REPEATER,
-			'fields' => [
-				['name' => 'label', 'label' => 'Label', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'Trust'],
-				['name' => 'icon', 'label' => 'Icon', 'type' => \Elementor\Controls_Manager::SELECT, 'default' => 'shield',
-					'options' => ['shield' => 'Shield', 'truck' => 'Truck', 'package' => 'Package']],
-			],
+			'fields' => $repeater_trust->get_controls(),
 			'default' => [
 				['label' => 'Quality tested', 'icon' => 'shield'],
 				['label' => 'Free shipping', 'icon' => 'truck'],
